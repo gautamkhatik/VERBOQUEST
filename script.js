@@ -15476,8 +15476,11 @@ function checkWinLose(guess, tiles) {
     return;
   }
 
-  const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])");
+   const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])");
   if (remainingTiles.length === 0) {
+    const f = document.getElementById("over");
+    f.currentTime = 0;
+    f.play();
     showAlert(targetWord.toUpperCase(), null);
     stopInteraction();
   }
